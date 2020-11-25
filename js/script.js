@@ -46,8 +46,10 @@
     )
   }
 
+  const showroomTimeout = setTimeout(() => $('.showroom').fadeOut(), 5000)
   $('.showroom').click(() => {
     $('.showroom').fadeOut()
+    clearTimeout(showroomTimeout)
   })
 
   const showRow = name => {
