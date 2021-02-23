@@ -491,7 +491,7 @@
                 items: ['architecture', 'mobilier', 'installation'],
                 order: 0,
               },
-              titre: {
+              'titre vignette (et sous titre projet)': {
                 type: 'input',
                 value: title,
                 order: 1,
@@ -502,7 +502,7 @@
                 value: [vignette],
                 order: 2,
               },
-              sous_titre: {
+              'titre projet': {
                 type: 'input',
                 value: subtitle,
                 order: 3,
@@ -513,17 +513,17 @@
                 value: galerie,
                 order: 4,
               },
-              description_1: {
+              'description (ligne 1)': {
                 type: 'textarea',
                 value: description[0],
                 order: 5,
               },
-              description_2: {
+              'description (ligne 2)': {
                 type: 'textarea',
                 value: description[1],
                 order: 6,
               },
-              description_3: {
+              'description (ligne 3)': {
                 type: 'textarea',
                 value: description[2],
                 order: 7,
@@ -534,11 +534,12 @@
       },
       removeForm(form) {
         form.dom.remove()
+        return [form.dom.getAttribute('data-sabo-id')]
       },
       addForm(form) {
         $('.row.realisation').prepend(`<div class="col-sm-4 rea">
             <div>
-                <div class="rea-overlay">${form.title}</div>
+                <div class="rea-overlay"></div>
                 <img src="" />
                 <div class="slides" style="display:none">
                     <a class="bt left"></a>
@@ -572,38 +573,59 @@
           rea.find('a.left').click(() => move_in_galery(rea, -1))
           rea.find('a.right').click(() => move_in_galery(rea, +1))
         })
+        return [form.dom]
       },
       updateField(form, key, value) {
         const dom = $(form.dom)
-        const descNum = key.split('_').pop()
+        const descNum = (key.match(/description \(ligne (\d+)\)/) || [])[1]
         const galerie = dom.find('.slides-container img')
         const cats = {
           mobilier: 'mob',
           installation: 'ins',
           architecture: 'rea',
         }
-        dom.find('.description > :nth-child(2)')
+
         switch (key) {
-          case 'titre':
-            dom.find('.rea-overlay').text(value)
-            dom.find('.description > :nth-child(2)').text(value)
-            break
+          case 'titre vignette (et sous titre projet)':
+            return [
+              dom
+                .find('.rea-overlay')
+                .text(value)
+                .attr('data-sabo-id'),
+              dom
+                .find('.description > :nth-child(2)')
+                .text(value)
+                .attr('data-sabo-id'),
+            ]
 
-          case 'sous_titre':
-            dom.find('.description > :nth-child(1)').text(value)
-            break
+          case 'titre projet':
+            return [
+              dom
+                .find('.description > :nth-child(1)')
+                .text(value)
+                .attr('data-sabo-id'),
+            ]
 
-          case 'description_1':
-          case 'description_2':
-          case 'description_3':
-            dom.find(`.fixed-text > :nth-child(${descNum})`).html(value)
-            break
+          case 'description (ligne 1)':
+          case 'description (ligne 2)':
+          case 'description (ligne 3)':
+            return [
+              dom
+                .find(`.fixed-text > :nth-child(${descNum})`)
+                .html(value)
+                .attr('data-sabo-id'),
+            ]
 
           case 'vignette':
-            dom.find('> div > img').attr('src', value)
-            break
+            return [
+              dom
+                .find('> div > img')
+                .attr('src', value)
+                .attr('data-sabo-id'),
+            ]
 
           case 'galerie':
+            const modifiedIds = []
             for (let i = 0; i < Math.max(value.length, galerie.length); i++) {
               if (
                 galerie[i] &&
@@ -612,23 +634,36 @@
               ) {
                 //replace
                 $(galerie[i]).attr('src', value[i])
+                modifiedIds.push(
+                  $(galerie[i])
+                    .attr('src', value[i])
+                    .attr('data-sabo-id')
+                )
               } else if (!galerie[i] && value[i]) {
                 // add
-                dom
-                  .find('.slides-container')
-                  .append(`<div class="slide"><img src="${value[i]}" /></div>`)
+                modifiedIds.push(
+                  dom
+                    .find('.slides-container')
+                    .append(
+                      `<div class="slide"><img src="${value[i]}" /></div>`
+                    )
+                    .attr('data-sabo-id')
+                )
               } else if (galerie[i] && !value[i]) {
                 //remove
-                $(galerie[i])
-                  .parent('.slide')
-                  .remove()
+                modifiedIds.push(
+                  $(galerie[i])
+                    .parent('.slide')
+                    .remove()
+                    .attr('data-sabo-id')
+                )
               }
             }
-            break
+
+            return modifiedIds
 
           case 'categorie':
-            dom.attr('data-filter', cats[value])
-            break
+            return [dom.attr('data-filter', cats[value]).attr('data-sabo-id')]
         }
       },
     },
