@@ -651,12 +651,14 @@
                 )
               } else if (galerie[i] && !value[i]) {
                 //remove
-                modifiedIds.push(
-                  $(galerie[i])
-                    .parent('.slide')
-                    .remove()
-                    .attr('data-sabo-id')
-                )
+                const parentId = $(galerie[i])
+                  .parent('.slide')
+                  .parent()
+                  .attr('data-sabo-id')
+                $(galerie[i])
+                  .parent('.slide')
+                  .remove()
+                modifiedIds.push(parentId)
               }
             }
 
