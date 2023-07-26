@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RonanDrouglazet/dahu.git"
+    "url": "git+https://github.com/AtelierDahu/dahu.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/RonanDrouglazet/dahu/issues"
+    "url": "https://github.com/AtelierDahu/dahu/issues"
   },
-  "homepage": "https://github.com/RonanDrouglazet/dahu#readme"
+  "homepage": "https://github.com/AtelierDahu/dahu#readme"
 }
