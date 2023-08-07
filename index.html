@@ -38,17 +38,6 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
-
-  <style>
-    .admin-container {
-      justify-content: center;
-      display: flex;
-    }
-
-    .admin-container button {
-      margin: 5px;
-    }
-  </style>
 </head>
 
 <body>
@@ -1620,31 +1609,6 @@
       </div>
     </div>
   </div>
-
-  <div class="admin-container">
-    <button id="listProject">Lister les projets</button>
-    <button id="addProject">Ajouter un projets</button>
-    <button id="removeProject">Supprimer un projets</button>
-  </div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      document.getElementById("listProject").addEventListener("click", function () {
-        const projets = window.sabo_plugins[0].listForms();
-        console.log(projets);
-      });
-      document.getElementById("addProject").addEventListener("click", function () {
-        const form = {};
-        const projets = window.sabo_plugins[0].addForm(form);
-        console.log(projets);
-      });
-      document.getElementById("removeProject").addEventListener("click", function () {
-        const form = {};
-        const projets = window.sabo_plugins[0].removeForm(form);
-        console.log(projets);
-      });
-    });
-  </script>
 
   <script data-sabo-id="689">
     Array.from(document.querySelectorAll('.slide img')).forEach(img => {
