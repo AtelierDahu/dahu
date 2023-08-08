@@ -405,7 +405,6 @@
     rea.find('a.left').click(() => move_in_galery(rea, -1))
     rea.find('a.right').click(() => move_in_galery(rea, +1))
     rea.find('.slide').addClass('next')
-    move_in_galery(rea, 0, 0)
   })
 
   $('.slides').fadeOut(0)
