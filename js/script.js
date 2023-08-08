@@ -1,4 +1,4 @@
-;(function() {
+; (function () {
   const getId = element =>
     element.getAttribute && element.getAttribute('data-sabo-id')
   const getLastSaboId = document =>
@@ -104,7 +104,7 @@
     menuButtonOpen[menu] = !isOpen
     return sign2
   }
-  $('.menu-button.realisation').click(function() {
+  $('.menu-button.realisation').click(function () {
     showRow('realisation')
     toggleMenu('atelier', true)
     if (toggleMenu('realisation') === '+') {
@@ -170,7 +170,7 @@
       $(elem).addClass(id)
       $('.num-button-container').append(
         `<div class="num-button ${index === 0 ? 'current' : ''}">${index +
-          1}</div>`
+        1}</div>`
       )
       const attrs = [
         ['data-sabo-id', getLastSaboId(document) + 1],
@@ -236,7 +236,7 @@
     }
   }
 
-  $('.menu-sub.realisation span').click(function() {
+  $('.menu-sub.realisation span').click(function () {
     const filter = `data-filter="${$(this).attr('data-filter')}"`
     $(`.rea`)
       .stop()
@@ -247,12 +247,12 @@
     cleanSlides()
   })
 
-  $('.menu-button.atelier').click(function() {
+  $('.menu-button.atelier').click(function () {
     toggleMenu('realisation', true)
     toggleMenu('atelier')
   })
 
-  $('.menu-sub.atelier span').each(function() {
+  $('.menu-sub.atelier span').each(function () {
     const el = $(this)
     const page = el.attr('data-page')
 
@@ -277,7 +277,7 @@
   })
 
   /** GALERY */
-  const prepare_neighbours = function(fsi, index) {
+  const prepare_neighbours = function (fsi, index) {
     let indexNext = index + 1
     let indexPrev = index - 1
     if (indexNext > fsi.length - 1) {
@@ -315,7 +315,7 @@
     })
   }
 
-  const move_in_galery = function(slides, relative, absolute, noText) {
+  const move_in_galery = function (slides, relative, absolute, noText) {
     // get index
     const old = slides.find('.slide.current')
     const oldVideo = old.find('video')
@@ -337,12 +337,12 @@
     prepare_neighbours(fsi, index)
 
     const current = $(fsi.get(index))
-    const currentVideo = current.find('video')
     current
       .removeClass('next')
       .removeClass('prev')
       .addClass('current')
 
+    const currentVideo = current.find('video')
     if (currentVideo.length) {
       currentVideo.get(0).play()
     }
@@ -383,7 +383,7 @@
     $('.showroom .logo img').css('width', blackLogo.width() + 'px')
   }
 
-  $('.rea').click(function() {
+  $('.rea').click(function () {
     const rea = $(this)
     if (!rea.find('.slides').is(':visible')) {
       rea.find('.slides').fadeIn()
@@ -558,7 +558,7 @@
             </div>
           </div>`)
         form.dom = $('.row.realisation .rea').get(0)
-        $('.rea').click(function() {
+        $('.rea').click(function () {
           const rea = $(this)
           if (!rea.find('.slides').is(':visible')) {
             rea.find('.slides').fadeIn()
