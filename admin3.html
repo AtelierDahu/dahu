@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+
+<head>
+    <link rel="stylesheet" href="css/style.css ">
+    <title>Dahu Admin</title>
+
+    <style>
+        .admin-container {
+            justify-content: center;
+            display: flex;
+        }
+
+        .admin-container button {
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="pageIndexContainer"></div>
+
+    <div class="admin-container">
+        <button id="listProject">Lister les projets</button>
+        <button id="addProject">Ajouter un projets</button>
+        <button id="removeProject">Supprimer un projets</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $.get('index.html', function (data) {
+                $('#pageIndexContainer').html(data);
+            }).fail(function (error) {
+                console.error('Erreur lors du chargement du contenu :', error);
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("listProject").addEventListener("click", function () {
+                const projets = window.sabo_plugins[0].listForms();
+                console.log(projets);
+            });
+            document.getElementById("addProject").addEventListener("click", function () {
+                const projets = window.sabo_plugins[0].addForm(form);
+                console.log(projets);
+            });
+            document.getElementById("removeProject").addEventListener("click", function () {
+                const form = {};
+                const projets = window.sabo_plugins[0].removeForm(form);
+                console.log(projets);
+            });
+        });
+    </script>
+
+    <script src="js/script.js" data-sabo-id="693"></script>
+</body>
+
+</html>

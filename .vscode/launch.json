@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "chrome",
+            "type": "msedge",
             "request": "launch",
             "name": "index.html",
             "file": "c:\\Users\\Mabyre\\Documents\\SiteWeb\\AtelierDahu\\AtelierDahu\\index.html"
@@ -14,7 +14,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "admin.html",
-            "file": "c:\\Users\\Mabyre\\Documents\\SiteWeb\\AtelierDahu\\AtelierDahu\\admin0.html"
+            "file": "c:\\Users\\Mabyre\\Documents\\SiteWeb\\AtelierDahu\\AtelierDahu\\admin.html"
         }
     ]
 }

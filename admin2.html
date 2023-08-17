@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous" data-sabo-id="690"></script>
+
+    <link rel="stylesheet" href="css/style.css ">
+    <title>Dahu Admin</title>
+
+    <style>
+        .admin-container {
+            justify-content: center;
+            display: flex;
+        }
+
+        .admin-container button {
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <iframe src="index.html" width="100%" height="600px"></iframe>
+
+    <div class="admin-container">
+        <button id="listProject">Lister les projets</button>
+        <button id="addProject">Ajouter un projets</button>
+        <button id="removeProject">Supprimer un projets</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("listProject").addEventListener("click", function () {
+                const projets = window.sabo_plugins[0].listForms();
+                console.log(projets);
+            });
+            document.getElementById("addProject").addEventListener("click", function () {
+                <!-- const form = {}; -->
+                const projets = window.sabo_plugins[0].addForm(form);
+                console.log(projets);
+            });
+            document.getElementById("removeProject").addEventListener("click", function () {
+                const form = {};
+                const projets = window.sabo_plugins[0].removeForm(form);
+                console.log(projets);
+            });
+        });
+    </script>
+
+    <script src="js/script.js" data-sabo-id="693"></script>
+
+</body>
+
+</html>

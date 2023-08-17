@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+
+<head>
+    <link rel="stylesheet" href="css/style.css ">
+    <title>Dahu Admin</title>
+
+</head>
+
+<body>
+
+    <div id="pageIndex"></div>
+
+    <script>
+        // Créer un objet XMLHttpRequest
+        var xhr = new XMLHttpRequest();
+        // Ouvrir une requête GET vers le fichier index.html
+        xhr.open("GET", "index.html");
+        // Définir une fonction à exécuter quand la requête est terminée
+        // Envoyer la requête
+        xhr.send();
+        xhr.onload = function () {
+            // Récupérer la balise <div> avec l'identifiant "contenu"
+            var div = document.getElementById("pageIndex");
+            // Remplacer le contenu de la balise <div> par le HTML du fichier index.html
+            div.innerHTML = xhr.responseText;
+        };
+    </script>
+
+    <script>
+        window.addEventListener("load", function () {
+            console.log(
+                "Cette fonction est exécutée une fois quand la page est chargée.",
+            );
+        });
+    </script>
+
+
+</body>
+
+</html>
