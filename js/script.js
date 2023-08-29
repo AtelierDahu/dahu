@@ -364,10 +364,7 @@
         .pop()}"]`
     ).addClass('current')
   }
-
-  /**
-   * END GALERY
-   */
+  // end of move_in_galery()
 
   function placeLogo() {
     const blackLogo =
