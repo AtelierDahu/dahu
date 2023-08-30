@@ -169,8 +169,7 @@
       const id = 't' + num
       $(elem).addClass(id)
       $('.num-button-container').append(
-        `<div class="num-button ${index === 0 ? 'current' : ''}">${index +
-        1}</div>`
+        `<div class="num-button ${index === 0 ? 'current' : ''}">${index + 1}</div>`
       )
       const attrs = [
         ['data-sabo-id', getLastSaboId(document) + 1],
