@@ -168,9 +168,14 @@
       const num = (Date.now() * Math.random()).toFixed(0)
       const id = 't' + num
       $(elem).addClass(id)
+      // this will appear only appended to num-button-container with data-sabo-id="687"
       $('.num-button-container').append(
         `<div class="num-button ${index === 0 ? 'current' : ''}">${index + 1}</div>`
       )
+      // so I try to had a click event handler on the fly
+      $('.num-button-container').on('click', '.num-button', function () {
+        move_in_galery(slide, 0, $(this).index())
+      })
       const attrs = [
         ['data-sabo-id', getLastSaboId(document) + 1],
         ['data-sabo-editable', true],
