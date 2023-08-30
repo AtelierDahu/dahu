@@ -384,9 +384,9 @@
     const rea = $(this)
     if (!rea.find('.slides').is(':visible')) {
       rea.find('.slides').fadeIn()
+      initSlideButton(rea)
       move_in_galery(rea, 0, 0)
       setTextInMenu(rea.find('.description'))
-      initSlideButton(rea)
       rea
         .find('.slide img')
         .get()
