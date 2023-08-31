@@ -285,7 +285,10 @@
     video.play()
   })
 
-  /** GALERY */
+  /** 
+   * GALERY
+   */
+
   const prepare_neighbours = function (fsi, index) {
     let indexNext = index + 1
     let indexPrev = index - 1
@@ -381,6 +384,10 @@
       .addClass('current')
   }
   // end of move_in_galery()
+
+  /**
+   * END GALERY
+   */
 
   function placeLogo() {
     const blackLogo =
