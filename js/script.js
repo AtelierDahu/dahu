@@ -364,6 +364,8 @@
         setTextInMenu(currentText)
       }
     }
+
+    // this will modify num-button in num-button-container with data-sabo-id="687"
     $('.num-button.current').removeClass('current')
     $(
       `.num-button[ob-bind="${Array.from(
@@ -372,6 +374,11 @@
         .filter(_ => _[0] === 't')
         .pop()}"]`
     ).addClass('current')
+
+    const buttons = slides.find('div.num-button-container > div.num-button')
+    const currentButton = $(buttons.get(index))
+    currentButton
+      .addClass('current')
   }
   // end of move_in_galery()
 
