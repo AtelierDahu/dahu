@@ -38,7 +38,7 @@ body {
   max-width: 100%;
 }
 
-.main.container > .row {
+.main.container>.row {
   max-width: 98%;
   margin: auto;
 }
@@ -83,7 +83,7 @@ img.logo {
   overflow-y: auto;
 }
 
-.rea > div {
+.rea>div {
   position: relative;
 }
 
@@ -125,12 +125,13 @@ img.logo {
 .menu .fixed {
   position: fixed;
   width: 23%;
-  height: 96%;
+  background-color: #fff;
+  /* height: 96%; */
 }
 
 .menu .content-text {
   margin-right: 10%;
-  margin-top: 50px;
+  margin-top: 260px;
   height: 320px;
   overflow: hidden;
   line-height: 1.2em;
@@ -304,17 +305,17 @@ img.logo {
   border: 1px solid #888888;
 }
 
-.content > .row:not(.realisation) {
+.content>.row:not(.realisation) {
   display: none;
   text-align: center;
   overflow: hidden;
 }
 
-.content > .row:not(.realisation) img {
+.content>.row:not(.realisation) img {
   height: 96vh;
 }
 
-.content > .row:not(.realisation) .content-text {
+.content>.row:not(.realisation) .content-text {
   display: none;
 }
 
@@ -385,20 +386,20 @@ img.logo {
     justify-content: space-evenly;
   }
 
-  .content > .row:not(.realisation) .slides > .content-text,
-  .content > .row:not(.realisation) > .content-text {
+  .content>.row:not(.realisation) .slides>.content-text,
+  .content>.row:not(.realisation)>.content-text {
     display: block;
     padding: 20px;
     text-align: left;
   }
 
-  .content > .row.contact img {
+  .content>.row.contact img {
     height: 30px;
   }
 }
 
 @media (orientation: portrait) {
-  .content > .row:not(.realisation):not(.contact) img {
+  .content>.row:not(.realisation):not(.contact) img {
     height: auto;
   }
   .slides img {

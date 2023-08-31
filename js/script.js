@@ -162,6 +162,10 @@
     $('.num-button-container').html('')
   }
 
+  function scrollToTop() {
+    window.scrollTo(0, 0);
+  }
+
   const initSlideButton = slide => {
     cleanSlideButton()
     slide.find('.slide').each((index, elem) => {
@@ -188,6 +192,7 @@
       attrs.forEach(([key, value]) => button.attr(key, value))
       button.click(() => move_in_galery(slide, 0, index))
     })
+    scrollToTop()
   }
 
   window.refreshSlideButton = (num, duplicate) => {
