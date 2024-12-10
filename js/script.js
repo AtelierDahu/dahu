@@ -166,6 +166,10 @@
     window.scrollTo(0, 0);
   }
 
+  function isMobile() {
+    return window.innerWidth <= 768; // Vous pouvez ajuster la valeur selon vos besoins
+  }
+
   const initSlideButton = slide => {
     cleanSlideButton()
     slide.find('.slide').each((index, elem) => {
@@ -176,10 +180,12 @@
       $('.num-button-container').append(
         `<div class="num-button ${index === 0 ? 'current' : ''}">${index + 1}</div>`
       )
-      // so I try to had a click event handler on the fly
-      $('.num-button-container').on('click', '.num-button', function () {
-        move_in_galery(slide, 0, $(this).index())
-      })
+      if (isMobile()) {
+        // add a click event handler on the fly
+        $('.num-button-container').on('click', '.num-button', function () {
+          move_in_galery(slide, 0, $(this).index())
+        })
+      }
       const attrs = [
         ['data-sabo-id', getLastSaboId(document) + 1],
         ['data-sabo-editable', true],
