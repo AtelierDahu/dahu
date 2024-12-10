@@ -46,6 +46,7 @@ body {
 img.logo {
   max-width: 100%;
 }
+
 .menu .logo {
   cursor: pointer;
 }
@@ -132,7 +133,7 @@ img.logo {
 .menu .content-text {
   margin-right: 10%;
   margin-top: 260px;
-  height: 320px;
+  /*height: 320px;*/
   overflow: hidden;
   line-height: 1.2em;
   text-align: left;
@@ -360,12 +361,15 @@ img.logo {
   .mobile-menu {
     display: block;
   }
+
   .main.container {
     padding-top: 100px;
   }
+
   .menu {
     display: none;
   }
+
   .slides {
     top: 113px;
     width: 100%;
@@ -402,6 +406,7 @@ img.logo {
   .content>.row:not(.realisation):not(.contact) img {
     height: auto;
   }
+
   .slides img {
     width: 100%;
     height: auto;
