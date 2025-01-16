@@ -25,3 +25,14 @@ Boutons supprimés quand il ne reste plus qu'une photo dans la section (Atelier/
 ### Structure du Site
 
 ![Stucture du Site](./images/doc/structure_site.png)
+
+### Mise à jour
+
+- Décembre 2024
+	- le texte devient scrollable
+	- déplacement de certains projets
+	- remaniement suppression du show room
+	- correction de bug en mode "mobile phone"
+
+- Janvier 2025 
+	- ajout de quatre nouveaux projets
